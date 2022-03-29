@@ -57,3 +57,17 @@ systemctl restart slurmctld
 /opt/confluent/bin/nodeshell all systemctl restart munge
 /opt/confluent/bin/nodeshell all systemctl enable slurmd
 /opt/confluent/bin/nodeshell all systemctl restart slurmd
+
+
+# Configure NFS
+
+echo "/opt/ohpc/pub *(ro,no_subtree_check,fsid=11)">> /etc/exports
+exportfs -a 
+
+/opt/confluent/bin/nodeshell all dnf install -y nfs-utils
+
+/opt/confluent/bin/nodeshell all mkdir -p /opt/ohpc/pub
+/opt/confluent/bin/nodeshell all echo "\""${sms_ip}:/opt/ohpc/pub /opt/ohpc/pub nfs nfsvers=4.0,nodev,noatime \
+0 0"\"" \>\> /etc/fstab
+
+/opt/confluent/bin/nodeshell all mount /opt/ohpc/pub

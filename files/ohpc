@@ -1,0 +1,30 @@
+#%Module1.0#####################################################################
+# Default OpenHPC environment
+#############################################################################
+
+proc ModulesHelp { } {
+puts stderr "Setup default login environment"
+}
+
+#
+# Load Desired Modules
+#
+
+prepend-path     PATH   /opt/ohpc/pub/bin
+
+if { [ expr [module-info mode load] || [module-info mode display] ] } {
+        prepend-path MANPATH /usr/local/share/man:/usr/share/man/overrides:/usr/share/man/en:/usr/share/man
+        module try-add autotools
+        module try-add prun
+        module try-add gnu9
+        module try-add openmpi4
+        module try-add singularity
+}
+
+if [ module-info mode remove ] {
+        module del singularity
+        module del openmpi4
+        module del gnu9
+        module del prun
+        module del autotools
+}

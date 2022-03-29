@@ -1,18 +1,37 @@
 source ./files/lico_env.local
 
-# Configure NFS
-
-echo "/opt/ohpc/pub *(ro,no_subtree_check,fsid=11)">> /etc/exports
-exportfs -a 
+# setup nfs
+dnf install -y nfs-utils
+systemctl enable nfs-server --now
 
 /opt/confluent/bin/nodeshell all dnf install -y nfs-utils
+/opt/confluent/bin/nodeshell all systemctl enable nfs-client --now
 
-/opt/confluent/bin/nodeshell all mkdir -p /opt/ohpc/pub
-/opt/confluent/bin/nodeshell all echo "\""${sms_ip}:/opt/ohpc/pub /opt/ohpc/pub nfs nfsvers=4.0,nodev,noatime \
-0 0"\"" \>\> /etc/fstab
+# setup the install dir
+share_installer_dir="/install/installer"
 
-/opt/confluent/bin/nodeshell all mount /opt/ohpc/pub
+echo "/install/installer *(rw,async,no_subtree_check,no_root_squash)" >> /etc/exports
+exportfs -a
 
+/opt/confluent/bin/nodeshell all mkdir -p $share_installer_dir
+/opt/confluent/bin/nodeshell all "echo '${sms_ip}:/install/installer /install/installer \
+nfs nfsvers=4.0,nodev,nosuid,noatime 0 0' >> /etc/fstab"
+
+/opt/confluent/bin/nodeshell all mount /install/installer
+
+# setup httpd for install dir
+cat << eof > /etc/httpd/conf.d/installer.conf
+Alias /install /install
+<Directory /install>
+AllowOverride None
+Require all granted
+Options +Indexes +FollowSymLinks
+</Directory>
+eof
+systemctl restart httpd
+
+
+# setup the shared folder for all nodes
 echo "/home *(rw,async,no_subtree_check,fsid=10,no_root_squash)" >> /etc/exports
 exportfs -a
 

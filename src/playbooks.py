@@ -1,8 +1,3 @@
-import os
-
-script_dir = os.path.dirname(__file__)
-playbooks_dir = os.path.join(script_dir, "playbooks")
-
 playbooks = [
     {
         "name": "repositories",
@@ -13,8 +8,8 @@ playbooks = [
         "file": "confluent.sh"
     },
     {
-        "name": "install dir",
-        "file": "install_dir.sh"
+        "name": "nfs setup",
+        "file": "nfs.sh"
     },
     {
         "name": "distribute_repos",
@@ -31,10 +26,6 @@ playbooks = [
     {
         "name": "slurm",
         "file": "slurm.sh"
-    },
-    {
-        "name": "nfs",
-        "file": "nfs.sh"
     },
     {
         "name": "chrony",
