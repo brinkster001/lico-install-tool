@@ -1,5 +1,5 @@
 # lico-install-tool
-A tool to rapidly deploy LiCO
+A tool to rapidly deploy LiCO v6.3
 
 # prerequisites
 Python3
