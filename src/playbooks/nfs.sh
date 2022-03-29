@@ -5,7 +5,7 @@ dnf install -y nfs-utils
 systemctl enable nfs-server --now
 
 /opt/confluent/bin/nodeshell all dnf install -y nfs-utils
-/opt/confluent/bin/nodeshell all systemctl enable nfs-client --now
+
 
 # setup the install dir
 share_installer_dir="/install/installer"
