@@ -20,25 +20,33 @@ systemctl restart icinga2
 /opt/confluent/bin/nodeshell all icinga2 pki save-cert --trustedcert \
 /var/lib/icinga2/certs/trusted-parent.crt --host ${sms_name}
 
-# for ((i=0;i<$num_computes;i++));do
-# ticket=`icinga2 pki ticket --cn ${c_name[${i}]}`
-# /opt/confluent/bin/nodeshell ${c_name[${i}]} icinga2 node setup --ticket ${ticket} --cn ${c_name[${i}]} \
-# --endpoint ${sms_name} --zone ${c_name[${i}]} --parent_zone master --parent_host \
-# ${sms_name} --trustedcert /var/lib/icinga2/certs/trusted-parent.crt \
-# --accept-commands --accept-config --disable-confd
-# done
-
-# for ((i=0;i<$num_logins;i++));do
-# ticket=`icinga2 pki ticket --cn ${l_name[${i}]}`
-# /opt/confluent/bin/nodeshell ${l_name[${i}]} icinga2 node setup --ticket ${ticket} --cn ${l_name[${i}]} \
-# --endpoint ${sms_name} --zone ${l_name[${i}]} --parent_zone master --parent_host \
-# ${sms_name} --trustedcert /var/lib/icinga2/certs/trusted-parent.crt \
-# --accept-commands --accept-config --disable-confd
-# done
+for ((i=0;i<$num_computes;i++));do
+ticket=`icinga2 pki ticket --cn ${c_name[${i}]}`
+/opt/confluent/bin/nodeshell ${c_name[${i}]} icinga2 node setup --ticket ${ticket} --cn ${c_name[${i}]} \
+--endpoint ${sms_name} --zone ${c_name[${i}]} --parent_zone master --parent_host \
+${sms_name} --trustedcert /var/lib/icinga2/certs/trusted-parent.crt \
+--accept-commands --accept-config --disable-confd
+done
 
 
-# /opt/confluent/bin/nodeshell all "echo -e 'LANG=en_US.UTF-8' >> /etc/sysconfig/icinga2"
-# /opt/confluent/bin/nodeshell all systemctl restart icinga2
+if [ $num_logins -gt 0 ]
+then
+for ((i=0;i<$num_logins;i++));do
+ticket=`icinga2 pki ticket --cn ${l_name[${i}]}`
+/opt/confluent/bin/nodeshell ${l_name[${i}]} icinga2 node setup --ticket ${ticket} --cn ${l_name[${i}]} \
+--endpoint ${sms_name} --zone ${l_name[${i}]} --parent_zone master --parent_host \
+${sms_name} --trustedcert /var/lib/icinga2/certs/trusted-parent.crt \
+--accept-commands --accept-config --disable-confd
+done
+else
+echo "no login nodes"
+fi
+
+
+
+
+/opt/confluent/bin/nodeshell all "echo -e 'LANG=en_US.UTF-8' >> /etc/sysconfig/icinga2"
+/opt/confluent/bin/nodeshell all systemctl restart icinga2
 
 
 mkdir -p /etc/icinga2/zones.d/global-templates
@@ -104,8 +112,8 @@ command_endpoint = host.vars.agent_endpoint\n}\n" >> \
 chown -R icinga:icinga /etc/icinga2/zones.d/master
 systemctl restart icinga2
 
-# /opt/confluent/bin/nodeshell all modprobe ipmi_devintf
-# /opt/confluent/bin/nodeshell all systemctl enable icinga2
+/opt/confluent/bin/nodeshell all modprobe ipmi_devintf
+/opt/confluent/bin/nodeshell all systemctl enable icinga2
 modprobe ipmi_devintf
 systemctl enable icinga2
 

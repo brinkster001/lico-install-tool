@@ -46,7 +46,7 @@ fi
 
 
 
-#lico-service-tool enable
-#lico-service-tool start
+lico-service-tool enable
+lico-service-tool start
 
 lico import_user -u root -r admin
