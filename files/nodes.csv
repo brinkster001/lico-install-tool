@@ -7,7 +7,7 @@
 # Please enter datacenter room information in the below table.,,,,,,,,,,,
 # LiCO only support one datacenter room currently.,,,,,,,,,,,
 room,name,location_description,,,,,,,,,
-,Company LTD,Haripur,,,,,,,,,
+,Company LTD,Cityville,,,,,,,,,
 ,,,,,,,,,,,
 # Please enter the logic groups information in the below table.,,,,,,,,,,,
 "# The cluster nodes can be divided into groups logically. This is helpful for monitoring, querying, statistics, etc.",,,,,,,,,,,
