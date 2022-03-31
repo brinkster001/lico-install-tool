@@ -36,13 +36,13 @@ nodeattrib ${c_name[$i]} hardwaremanagement.manager=${c_bmc[$i]};
 nodedefine ${c_name[$i]} groups=all,compute;
 done
 
-# # Define the login node configuration to confluent
-# if [ $num_logins -gt 0 ]
-# for ((i=0; i<$num_logins; i++)); do
-# nodedefine ${l_name[$i]};
-# nodeattrib ${l_name[$i]} net.hwaddr=${l_mac[$i]};
-# nodeattrib ${l_name[$i]} net.ipv4_address=${l_ip[$i]};
-# nodeattrib ${l_name[$i]} hardwaremanagement.manager=${l_bmc[$i]};
-# nodedefine ${l_name[$i]} groups=all,login;
-# done
-# fi
+# Define the login node configuration to confluent
+if [ $num_logins -gt 0 ]
+for ((i=0; i<$num_logins; i++)); do
+nodedefine ${l_name[$i]};
+nodeattrib ${l_name[$i]} net.hwaddr=${l_mac[$i]};
+nodeattrib ${l_name[$i]} net.ipv4_address=${l_ip[$i]};
+nodeattrib ${l_name[$i]} hardwaremanagement.manager=${l_bmc[$i]};
+nodedefine ${l_name[$i]} groups=all,login;
+done
+fi
