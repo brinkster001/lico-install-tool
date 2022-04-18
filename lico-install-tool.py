@@ -3,7 +3,7 @@ from src.precheck import precheck
 from src.install import install
 import logging
 
-
+# enable logging
 logging.basicConfig(
     level=logging.INFO, 
     format='%(asctime)s : %(levelname)s :  %(message)s',
@@ -14,8 +14,13 @@ logging.basicConfig(
 )
 
 def main():
+    # run prechecks
     precheck()
+
+    # get the input for credentials
     auth = credentials()
+
+    # start the installation
     install(auth)
 
 if __name__ == "__main__":

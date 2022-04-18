@@ -1,8 +1,11 @@
 import os
 
 script_dir = os.path.dirname(__file__)
+
+# set the path to where all the playbooks are located
 playbooks_dir = os.path.join(script_dir, "playbooks")
 
+# define the playbooks in the order they need to run
 playbooks = [
     {
         "name": "repositories",
