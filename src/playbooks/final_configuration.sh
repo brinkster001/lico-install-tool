@@ -1,4 +1,4 @@
-source ./files/lico_env.local
+source ${download_folder}/lico_env.local
 
 mysql -e "CREATE DATABASE lico /*\!40100 DEFAULT CHARACTER SET utf8 */;"
 mysql -e "CREATE USER ${LICO_MYSQL_USERNAME}@localhost IDENTIFIED BY '${LICO_MYSQL_PASSWORD}';"
@@ -39,7 +39,7 @@ echo ------------------------------------------------
 echo "Remember to configure nginx on the LOGIN node"
 echo ------------------------------------------------
 else
-cat ./files/nginx.conf > /etc/nginx/nginx.conf
+cat ${download_folder}/nginx.conf > /etc/nginx/nginx.conf
 systemctl enable nginx --now
 fi
 

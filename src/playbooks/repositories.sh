@@ -1,11 +1,14 @@
-source ./files/lico_env.local
+source ${download_folder}/lico_env.local
 
+mkdir ${iso_path}
 mkdir -p /install/installer
-
-
 mkdir -p ${os_repo_dir}
-mount -o loop ${iso_path}/${iso} ${os_repo_dir}
 mkdir -p /root/repo_backup
+
+
+mv ${download_folder}/${iso} ${iso_path}
+mount -o loop ${iso_path}/${iso} ${os_repo_dir}
+
 mv /etc/yum.repos.d/CentOS-* /root/repo_backup
 
 

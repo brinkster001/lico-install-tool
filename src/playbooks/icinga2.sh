@@ -1,4 +1,4 @@
-source ./files/lico_env.local
+source ${download_folder}/lico_env.local
 
 
 dnf install -y icinga2

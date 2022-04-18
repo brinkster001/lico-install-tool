@@ -1,4 +1,4 @@
-source ./files/lico_env.local
+source ${download_folder}/lico_env.local
 
 # Install Confluent
 dnf install -y lenovo-confluent tftp-server
@@ -38,11 +38,12 @@ done
 
 # Define the login node configuration to confluent
 if [ $num_logins -gt 0 ]
-for ((i=0; i<$num_logins; i++)); do
-nodedefine ${l_name[$i]};
-nodeattrib ${l_name[$i]} net.hwaddr=${l_mac[$i]};
-nodeattrib ${l_name[$i]} net.ipv4_address=${l_ip[$i]};
-nodeattrib ${l_name[$i]} hardwaremanagement.manager=${l_bmc[$i]};
-nodedefine ${l_name[$i]} groups=all,login;
-done
+then
+    for ((i=0; i<$num_logins; i++)); do
+    nodedefine ${l_name[$i]};
+    nodeattrib ${l_name[$i]} net.hwaddr=${l_mac[$i]};
+    nodeattrib ${l_name[$i]} net.ipv4_address=${l_ip[$i]};
+    nodeattrib ${l_name[$i]} hardwaremanagement.manager=${l_bmc[$i]};
+    nodedefine ${l_name[$i]} groups=all,login;
+    done
 fi

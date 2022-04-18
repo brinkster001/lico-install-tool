@@ -1,4 +1,4 @@
-source ./files/lico_env.local
+source ${download_folder}/lico_env.local
 
 dnf install -y rabbitmq-server
 systemctl enable rabbitmq-server --now
@@ -59,7 +59,7 @@ systemctl enable slapd --now
 dnf install -y libuser python3-libuser
 
 
-cat ./files/libuser.conf > /etc/libuser.conf
+cat ${download_folder}/libuser.conf > /etc/libuser.conf
 sed -i "/server = ldap:\/\/<LDAP_ADDRESS>/c\server = ldap:\/\/${sms_ip}" /etc/libuser.conf
 sed -i "/basedn = <DOMAIN>/c\basedn = ${lico_ldap_domain_name}" /etc/libuser.conf
 sed -i "/binddn = uid=admin,<DOMAIN>/c\binddn = uid=admin,${lico_ldap_domain_name}" /etc/libuser.conf
@@ -77,7 +77,7 @@ dnf install -y nss-pam-ldapd
 
 /opt/confluent/bin/nodeshell all dnf install -y nss-pam-ldapd
 
-cat ./files/nslcd.conf > /etc/nslcd.conf
+cat ${download_folder}/nslcd.conf > /etc/nslcd.conf
 sed -i "/uri ldap:\/\/<LDAP_ADDRESS>\//c\uri ldap:\/\/${sms_ip}\/" /etc/nslcd.conf
 sed -i "/base <DOMAIN>/c\base ${lico_ldap_domain_name}" /etc/nslcd.conf
 sed -i "/rootpwmoddn uid=admin,<DOMAIN>/c\rootpwmoddn uid=admin,${lico_ldap_domain_name}" /etc/nslcd.conf

@@ -1,4 +1,4 @@
-source ./files/lico_env.local
+source ${download_folder}/lico_env.local
 
 # Install Slurm
 dnf install -y lenovo-ohpc-base
@@ -7,7 +7,7 @@ dnf install -y ohpc-slurm-server
 
 
 # Configure Slurm
-cat ./files/slurm.conf > /etc/slurm/slurm.conf
+cat ${download_folder}/slurm.conf > /etc/slurm/slurm.conf
 
 
 
@@ -37,7 +37,7 @@ fi
 
 
 
-cat ./files/cgroup.conf > /etc/slurm/cgroup.conf
+cat ${download_folder}/cgroup.conf > /etc/slurm/cgroup.conf
 
 cp /etc/slurm/slurm.conf /install/installer
 cp /etc/slurm/cgroup.conf /install/installer

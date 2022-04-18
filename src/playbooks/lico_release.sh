@@ -1,4 +1,4 @@
-source ./files/lico_env.local
+source ${download_folder}/lico_env.local
 
 # Install LiCO on the management node
 dnf install -y lico-core lico-file-manager lico-confluent-proxy \
@@ -28,7 +28,7 @@ fi
 /opt/confluent/bin/nodeshell all cp /install/installer/lico-auth-internal.key /etc/lico/lico-auth-internal.key
 
 # Configure cluster nodes
-cat ./files/nodes.csv > /etc/lico/nodes.csv
+cat ${download_folder}/nodes.csv > /etc/lico/nodes.csv
 
 # Configure generic resources
 cp /etc/lico/gres.csv.example /etc/lico/gres.csv

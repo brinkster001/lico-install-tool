@@ -44,7 +44,7 @@ def precheck():
         logging.error(f'{ERROR}Could not find {download_folder}{ENDC}')
         exit()
 
+    # check if LiCO is already installed
     # check firewall
     # check SELinux
-    # check if LiCO is already installed
-    # check memory limits
+    

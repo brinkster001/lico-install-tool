@@ -7,7 +7,7 @@
 # Please enter datacenter room information in the below table.,,,,,,,,,,,
 # LiCO only support one datacenter room currently.,,,,,,,,,,,
 room,name,location_description,,,,,,,,,
-,Company LTD,Cityville,,,,,,,,,
+,lab,Bucharest,,,,,,,,,
 ,,,,,,,,,,,
 # Please enter the logic groups information in the below table.,,,,,,,,,,,
 "# The cluster nodes can be divided into groups logically. This is helpful for monitoring, querying, statistics, etc.",,,,,,,,,,,
@@ -25,7 +25,7 @@ group,name,,,,,,,,,,
 "# index - Row order, must be a positive integer and be unique in the same room.",,,,,,,,,,,
 # belonging_room - Name of the room where the row belongs. The room must be entered into the room table before.,,,,,,,,,,,
 row,name,index,belonging_room,,,,,,,,
-,row1,1,Company LTD,,,,,,,,
+,row1,1,lab,,,,,,,,
 ,,,,,,,,,,,
 # Please enter the racks information in the below table.,,,,,,,,,,,
 # Columns:,,,,,,,,,,,
@@ -60,5 +60,6 @@ chassis,name,belonging_rack,location_u_in_rack,machine_type,,,,,,,
 "# location_u: Node location. If the node is located in the chassis, enter the slot in the chassis in which the node is located. If the node is located in a rack, enter the location of the node base in the rack (Unit is U).",,,,,,,,,,,
 # groups: Name of the node location logic group. One node can belong to multiple logic groups. Group names should be separated by ;. The logic groups must be entered into the logic group table before.,,,,,,,,,,,
 node,name,nodetype,immip,hostip,machine_type,ipmi_user,ipmi_pwd,belonging_rack,belonging_chassis,location_u,groups
-,head,head,10.241.34.21,10.241.57.100,7X05,admin,Secret@123,rack2,,24,head
-,c1,compute,10.241.34.22,10.241.57.94,7X21,admin,Secret@123,rack1,,2,compute
+,head,head,10.241.34.2,10.241.57.84,7X05,******,******,rack2,,24,head
+,c1,compute,10.241.34.21,10.241.34.90,7X21,******,******,rack1,,2,compute
+,c2,compute,10.241.34.22,10.241.34.91,7X21,******,******,rack1,,4,compute
