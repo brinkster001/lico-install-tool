@@ -1,6 +1,6 @@
 [download_folder]
 # absolute path for the download folder
-path=/root/lico-install-tool
+path=/root/lico-install-tool/files
 
 [files]
 # These must be stored in "download_folder" path
