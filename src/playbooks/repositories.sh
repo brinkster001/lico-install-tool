@@ -115,7 +115,7 @@ ln -s $lico_repo_dir $link_lico_repo_dir
 $link_lico_repo_dir/mklocalrepo.sh
 
 # lico-release repo - nodes
-cp /etc/yum.repos.d/lico-release.repo /install/installer//
+cp /etc/yum.repos.d/lico-release.repo /install/installer/
 sed -i '/baseurl=/d' /install/installer//lico-release.repo
 sed -i "/name=lico-release-host/a\baseurl=http://${sms_name}\
 ${link_lico_repo_dir}/host/" /install/installer//lico-release.repo
@@ -123,5 +123,11 @@ sed -i "/name=lico-release-public/a\baseurl=http://${sms_name}\
 ${link_lico_repo_dir}/public/" /install/installer//lico-release.repo
 
 # update dnf cache
+rm -rf /etc/yum.repos.d/CentOS-Linux-*
 dnf clean all
 dnf makecache
+
+
+/opt/confluent/bin/nodeshell all rm -rf /etc/yum.repos.d/CentOS-Linux-*
+/opt/confluent/bin/nodeshell all dnf clean all
+/opt/confluent/bin/nodeshell all dnf makecache

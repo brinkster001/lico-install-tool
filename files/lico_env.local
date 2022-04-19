@@ -62,7 +62,7 @@ c_name[0]=c1
 c_ip[0]=10.241.34.90
 c_mac[0]=08:94:ef:fb:7e:c4
 c_bmc[0]=10.241.34.21
-c_cpu[0]=20
+c_cpu[0]=10
 c_ram[0]=100000
 c_gpu[0]=false
 
@@ -71,7 +71,7 @@ c_name[1]=c2
 c_ip[1]=10.241.34.91
 c_mac[1]=08:94:ef:fb:7c:4e
 c_bmc[1]=10.241.34.22
-c_cpu[1]=20
+c_cpu[1]=10
 c_ram[1]=100000
 c_gpu[1]=false
 
