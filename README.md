@@ -9,7 +9,7 @@ Python3
 
 # add the following items to the ./files directory:
 
-- Centos84 ISO
+- centos84.iso
 - confluent-3.2.3-xcat-2.16.1.lenovo2-el8.tar.bz2
 - Lenovo-OpenHPC-2.3.CentOS_8.x86_64.tar
 - lico-dep-6.3.0.el8.x86_64.tgz
