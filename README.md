@@ -2,7 +2,9 @@
 A tool to rapidly deploy LiCO v6.3
 
 # Prerequisites
-CentOS 8.4 - minimal install, Python3
+- CentOS 8.4 - minimal install
+- Python3
+- head and compute nodes can ping each other`s hostnames
 
 `$ pip install -r requirements.txt`
 
@@ -16,8 +18,6 @@ CentOS 8.4 - minimal install, Python3
 - Lenovo-OpenHPC-2.3.CentOS_8.x86_64.tar
 - lico-dep-6.3.0.el8.x86_64.tgz
 - lico-release-6.3.0.el8.tar.gz
-
-## Make sure head and compute nodes can ping each other`s hostnames
 
 ## Run lico-install-tool.py
 
