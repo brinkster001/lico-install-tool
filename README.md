@@ -2,7 +2,10 @@
 A tool to rapidly deploy LiCO v6.3
 
 # Prerequisites
+CentOS 8.4 - minimal install
 Python3
+
+`$ pip install -r requirements.txt`
 
 ## Edit node information in 'nodes.csv' and 'lico_env.local'
 ## If necessary adjust the settings in 'config' file
