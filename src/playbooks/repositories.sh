@@ -127,7 +127,3 @@ rm -rf /etc/yum.repos.d/CentOS-Linux-*
 dnf clean all
 dnf makecache
 
-
-/opt/confluent/bin/nodeshell all rm -rf /etc/yum.repos.d/CentOS-Linux-*
-/opt/confluent/bin/nodeshell all dnf clean all
-/opt/confluent/bin/nodeshell all dnf makecache

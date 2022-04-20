@@ -1,0 +1,7 @@
+#!/usr/bin/expect -f
+set host [lindex $argv 0];
+set password [lindex $argv 1];
+spawn ssh-copy-id -i /root/.ssh/id_rsa $host -o StrictHostKeyChecking=no
+expect "assword:"
+send "$password\n"
+expect eof

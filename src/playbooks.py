@@ -12,6 +12,10 @@ playbooks = [
         "file": "repositories.sh"
     },
     {
+        "name": "ssh keys",
+        "file": "ssh_keys.sh"
+    },
+    {
         "name": "confluent",
         "file": "confluent.sh"
     },
