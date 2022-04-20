@@ -9,7 +9,7 @@ CentOS 8.4 - minimal install, Python3
 ## Edit node information in 'nodes.csv' and 'lico_env.local'
 ## If necessary adjust the settings in 'config' file
 
-## Add the following items to the ./files directory:
+## Add the following to the ./files directory:
 
 - centos84.iso
 - confluent-3.2.3-xcat-2.16.1.lenovo2-el8.tar.bz2
