@@ -1,7 +1,7 @@
-# lico-install-tool
+# LiCO-install-tool
 A tool to rapidly deploy LiCO v6.3
 
-# prerequisites
+# Prerequisites
 Python3
 
 ## Edit node information in 'nodes.csv' and 'lico_env.local'
