@@ -1,0 +1,3 @@
+hostname,type,ip,imm_ip,mac,cpu,ram,gpu,gpu_type,groups,belonging_rack,belonging_chassis,location_u
+head,head,10.241.57.205,10.241.34.90,08:94:ef:fb:7e:c4,10,10000,FALSE,,"all, head",,,u1
+c1,compute,10.241.57.247,10.241.34.90,08:94:ef:fb:7e:c1,10,10000,TRUE,,"all, compute",,,u2

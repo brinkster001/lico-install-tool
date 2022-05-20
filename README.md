@@ -1,10 +1,10 @@
 # LiCO-install-tool
 A tool to rapidly deploy LiCO v6.3
 
-# Prerequisites
-- CentOS 8.4 - minimal install
-- Python3
-- head and compute nodes can ping each other`s hostnames
+# Pre requistes:
+- OS installed on all nodes
+- nodes can ping eachother`s hostnames
+- Python 3 installed on head node
 
 `$ pip install -r requirements.txt`
 

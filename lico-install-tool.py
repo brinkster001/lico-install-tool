@@ -1,5 +1,4 @@
-from src.credentials import credentials
-from src.precheck import precheck
+from src.setup import setup
 from src.install import install
 import logging
 
@@ -13,15 +12,13 @@ logging.basicConfig(
     ]
 )
 
-def main():
-    # run prechecks
-    precheck()
 
-    # get the input for credentials
-    auth = credentials()
+def main():
+    # customize setup
+    setup()
 
     # start the installation
-    install(auth)
+    install()
 
 if __name__ == "__main__":
     main()

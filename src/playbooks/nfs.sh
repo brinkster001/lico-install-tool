@@ -15,11 +15,6 @@ scp /install/installer/EL8-OS.repo root@${l_name[$i]}:/etc/yum.repos.d/EL8-OS.re
 done
 fi
 
-# clean the repositories first
-/opt/confluent/bin/nodeshell all rm -rf /etc/yum.repos.d/CentOS-Linux-*
-/opt/confluent/bin/nodeshell all dnf clean all
-/opt/confluent/bin/nodeshell all dnf makecache
-
 # setup httpd for install dir
 cat << eof > /etc/httpd/conf.d/installer.conf
 Alias /install /install
@@ -30,6 +25,13 @@ Options +Indexes +FollowSymLinks
 </Directory>
 eof
 systemctl restart httpd
+
+sleep 10
+
+# clean the repositories
+/opt/confluent/bin/nodeshell all rm -rf /etc/yum.repos.d/CentOS-Linux-*
+/opt/confluent/bin/nodeshell all dnf clean all
+/opt/confluent/bin/nodeshell all dnf makecache
 
 # setup nfs
 dnf install -y nfs-utils

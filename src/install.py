@@ -6,7 +6,7 @@ from src.playbooks import playbooks, playbooks_dir
 from src.colors import SUCCESS, ERROR, ENDC
 
 
-def install(credentials):
+def install():
     for playbook in playbooks:
         playbook_path = os.path.join(playbooks_dir, playbook['file'])
         if(playbook['file'] == "ssh_keys.sh"):

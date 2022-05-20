@@ -1,0 +1,22 @@
+{
+    "head": {
+        "groups": "head",
+        "hostname": "head",
+        "ip": "10.241.57.205",
+        "bmc_ip": "10.241.34.90",
+        "mac": "08:94:ef:fb:7e:c4",
+        "cpu": "10",
+        "ram": "10000",
+        "gpu": "FALSE"
+    },
+    "c1": {
+        "groups": "compute",
+        "hostname": "c1",
+        "ip": "10.241.57.247",
+        "bmc_ip": "10.241.34.90",
+        "mac": "08:94:ef:fb:7e:c1",
+        "cpu": "10",
+        "ram": "10000",
+        "gpu": "TRUE"
+    }
+}

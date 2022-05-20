@@ -22,31 +22,3 @@ auth_select_files=authselect.tar.gz
 [security]
 disable_firewalld=True
 disable_selinux=True
-
-[users]
-use_libuser = false
-
-[ldap]
-ldap_server_on_master=True
-# if ldap server is not running on LiCO master node, please provide the following
-ldap_uri=
-
-[MPI]
-install=True
-# select module: OpenMPI, MPICH, MVAPICH
-mpi_module=OpenMPI
-
-[lico-vnc-mond]
-install=True
-
-[lico-sms-agent]
-install=True
-
-[lico-wechat-agent]
-install=True
-
-[lico-mail-agent]
-install=True
-
-[lico-container-builder]
-install=True

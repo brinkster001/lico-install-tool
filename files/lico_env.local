@@ -1,7 +1,7 @@
 # Management node hostname
 sms_name="head"
 # IP address of management node in the cluster intranet
-sms_ip="10.241.57.84"
+sms_ip="10.241.57.205"
 # Network interface card MAC address corresponding to the management node IP
 sms_mac='b8:59:9f:2b:a2:e2'
 # Management node BMC address.
@@ -52,14 +52,14 @@ icinga_api_port=5665
 
 # If the confluent automatic discovery mode is enabled, skip the following configurations.
 # Total compute nodes
-num_computes="2"
+num_computes="1"
 # Prefix of compute node hostname.
 # Change the configuration according to actual conditions.
 compute_prefix="c"
 
 
 c_name[0]=c1
-c_ip[0]=10.241.34.90
+c_ip[0]=10.241.57.247
 c_mac[0]=08:94:ef:fb:7e:c4
 c_bmc[0]=10.241.34.21
 c_cpu[0]=10
@@ -67,13 +67,6 @@ c_ram[0]=100000
 c_gpu[0]=false
 
 
-c_name[1]=c2
-c_ip[1]=10.241.34.91
-c_mac[1]=08:94:ef:fb:7c:4e
-c_bmc[1]=10.241.34.22
-c_cpu[1]=10
-c_ram[1]=100000
-c_gpu[1]=false
 
 # Total login nodes. If there is no login node in the cluster, or the management node
 # and the login node is the same node, the number of logins must be "0".
